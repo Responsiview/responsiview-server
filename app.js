@@ -7,6 +7,8 @@ const statusCodes = require("http-status-codes");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+const loginRouter = require("./routes/loginRouter");
+
 const app = express();
 
 app.use(morgan("dev"));
@@ -19,6 +21,8 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use("/login", loginRouter);
 
 app.use(function (err, req, res, next) {
   res
