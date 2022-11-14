@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const presetSchema = new mongoose.Schema({
-  userId:{
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "User"
+    ref: "User",
   },
   title: {
     type: String,
@@ -14,10 +14,12 @@ const presetSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  deviceList: [{
-    type: String,
-    required: true,
-  }]
+  deviceList: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
 });
 
 module.exports = mongoose.model("Preset", presetSchema);
