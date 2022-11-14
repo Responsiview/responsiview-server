@@ -10,6 +10,7 @@ router
     const token = jwt.sign(
       { userEmail: req.body.userEmail },
       process.env.JWT_SECRET_KEY,
+      { expiresIn: "1h" },
     );
 
     res.cookie("token", token, { httpOnly: true });
