@@ -27,7 +27,7 @@ app.use("/login", loginRouter);
 app.use(function (err, req, res, next) {
   res
     .status(err.status || statusCodes.INTERNAL_SERVER_ERROR)
-    .json({ errorMessage: err.message });
+    .json({ errorMessage: err.message || "Internal Server Error" });
 });
 
 module.exports = app;

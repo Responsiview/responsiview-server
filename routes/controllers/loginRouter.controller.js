@@ -1,5 +1,3 @@
-const statusCodes = require("http-status-codes");
-
 const User = require("../../models/User");
 
 exports.checkUserOrCreate = async (req, res, next) => {
@@ -14,6 +12,6 @@ exports.checkUserOrCreate = async (req, res, next) => {
 
     next();
   } catch (error) {
-    res.status(statusCodes.INTERNAL_SERVER_ERROR).send("Internal Server Error");
+    next(error);
   }
 };
