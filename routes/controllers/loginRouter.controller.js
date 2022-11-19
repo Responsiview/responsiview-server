@@ -12,6 +12,7 @@ exports.checkUserOrCreate = async (req, res, next) => {
 
     next();
   } catch (error) {
+    error.message = "DataBase 에러발생";
     next(error);
   }
 };
