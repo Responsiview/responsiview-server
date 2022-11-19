@@ -14,7 +14,7 @@ const presetSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  deviceList: [
+  deviceIdList: [
     {
       type: String,
       required: true,
