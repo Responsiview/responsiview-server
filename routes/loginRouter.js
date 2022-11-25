@@ -14,10 +14,11 @@ router
         { expiresIn: "1h" },
       );
 
-      res.cookie("token", token, { httpOnly: true });
-      res.cookie("userEmail", req.body.userEmail);
-
-      res.json({ result: "Success", userEmail: req.body.userEmail });
+      res.json({
+        result: "Success",
+        userEmail: req.body.userEmail,
+        token,
+      });
     } catch (error) {
       next(error);
     }
