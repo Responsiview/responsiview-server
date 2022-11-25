@@ -28,7 +28,7 @@ app.use("/user/:userEmail/preset", presetRouter);
 
 app.use(function (err, req, res, next) {
   res.status(err.status || statusCodes.INTERNAL_SERVER_ERROR).json({
-    errorMessage: err.message || "서버 내부 에러, 다시 로그인해주세요.",
+    errorMessage: err.message || "서버 내부 에러입니다, 다시 로그인해주세요.",
   });
 });
 

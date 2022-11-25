@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const statusCodes = require("http-status-codes");
 
-async function verifyToken(req, res, next) {
+async function verifyToken(req, _, next) {
   const clientToken = req.headers.authorization.replace("Bearer ", "");
 
   try {

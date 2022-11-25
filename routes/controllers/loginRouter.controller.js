@@ -1,6 +1,6 @@
 const User = require("../../models/User");
 
-exports.checkUserOrCreate = async (req, res, next) => {
+exports.checkUserOrCreate = async (req, _, next) => {
   try {
     const user = await User.findOne({ email: req.body.userEmail });
 
@@ -12,7 +12,8 @@ exports.checkUserOrCreate = async (req, res, next) => {
 
     next();
   } catch (error) {
-    error.message = "DataBase 에러발생";
+    error.message = "Database 에러발생";
+
     next(error);
   }
 };

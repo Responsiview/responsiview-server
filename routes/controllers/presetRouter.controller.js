@@ -10,12 +10,12 @@ exports.getPresets = async (req, res, next) => {
     })
       .populate("presetCreates")
       .lean();
-
     const presets = user.presetCreates;
 
     res.send(presets);
   } catch (error) {
-    error.message = "DataBase 에러발생";
+    error.message = "Database 에러발생";
+
     next(error);
   }
 };
@@ -53,7 +53,8 @@ exports.createPreset = async (req, res, next) => {
     await session.abortTransaction();
     session.endSession();
 
-    error.message = "DataBase 에러발생";
+    error.message = "Database 에러발생";
+
     next(error);
   }
 };
@@ -69,7 +70,8 @@ exports.updatePreset = async (req, res, next) => {
 
     res.send({ result: "Success", updatedPreset });
   } catch (error) {
-    error.message = "DataBase 에러발생";
+    error.message = "Database 에러발생";
+
     next(error);
   }
 };
@@ -90,6 +92,7 @@ exports.deletePreset = async (req, res, next) => {
       user.presetCreates.indexOf(req.params.presetId),
       1,
     );
+
     await user.save();
 
     await session.commitTransaction();
@@ -100,7 +103,8 @@ exports.deletePreset = async (req, res, next) => {
     await session.abortTransaction();
     session.endSession();
 
-    error.message = "DataBase 에러발생";
+    error.message = "Database 에러발생";
+
     next(error);
   }
 };
